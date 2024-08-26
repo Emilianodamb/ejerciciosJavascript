@@ -107,13 +107,18 @@ console.log(result);
 
 
 //--------------------------------------------------------------
+//--------------------------------------------------------------
+//--------------------------------------------------------------
+// SEGUNDA TANDA DE EJERCICIOS:
+
+
 
 /*
 Ejercicio 1: Contar Vocales
 Descripción: Escribe una función que cuente la cantidad de vocales en una cadena de texto. 
 La función debe ser insensible a mayúsculas y minúsculas.
 */
-
+/*
 const phrase = "Hola Mundo";
 
 function contarVocalesEn(texto){
@@ -135,3 +140,137 @@ function contarVocalesEn(texto){
 
 const vowelCount = contarVocalesEn(phrase);
 console.log(vowelCount);  // 4
+
+
+//También se puede resolver como:
+
+function countVowelsInText(text) {
+    text = text.toLowerCase(); // Convertir el texto a minúsculas
+    const vowels = new Set('aeiou'); // Usar un Set para las vocales
+    let vowelCount = 0; // Contador de vocales
+
+    for (const character of text) {
+        if (vowels.has(character)) {
+            vowelCount++;
+        }
+    }
+    return vowelCount; // Devolver la cantidad total de vocales
+}*/
+
+
+//--------------------------------------------------------------
+/*
+Ejercicio 2: Filtrar Números Impares
+Descripción: Escribe una función que reciba un array de números 
+y devuelva un nuevo array que contenga solo los números impares.
+*/
+
+/*
+const numbers = [1, 2, 3, 4, 5, 6];
+
+function filtrarImpares(array){
+    const impares = array.filter(numero => numero % 2 === 1)
+    return impares
+}
+
+const oddNumbers = filtrarImpares(numbers);
+console.log(oddNumbers);  // [1, 3, 5]
+
+*/
+
+//--------------------------------------------------------------
+/*
+Ejercicio 3: Encontrar el Elemento Más Largo
+Descripción: Escribe una función que encuentre 
+el elemento más largo en un array de cadenas de texto.
+*/
+
+/*
+const words = ["cat", "elephant", "dog", "hippopotamus"];
+
+function encontrarPalabraMasLarga(arrayDePalabras){
+    let palabraMasLarga = arrayDePalabras[0]
+
+    for (const palabra of arrayDePalabras) {
+        if (palabra.length > palabraMasLarga.length) {
+            palabraMasLarga = palabra
+        }
+    };
+
+    return palabraMasLarga
+}
+
+const longestWord = encontrarPalabraMasLarga(words);
+console.log(longestWord);  // "hippopotamus"
+
+//También se puede resolver como:
+
+function encontrarPalabraMasLarga(arrayDePalabras) {
+    return arrayDePalabras.reduce((palabraMasLarga, palabraActual) => 
+        palabraActual.length > palabraMasLarga.length ? palabraActual : palabraMasLarga
+    );
+}
+
+*/
+
+//--------------------------------------------------------------------
+/*
+Ejercicio 4: Sumar los Valores de un Objeto
+Descripción: Escribe una función que reciba un objeto 
+cuyas propiedades son números 
+y devuelva la suma de todos esos valores.
+*/
+/*
+const numbersObject = { a: 1, b: 2, c: 3 };
+
+function sumObjectValues(obj) {
+    return Object.values(obj).reduce((sum, value) => sum + value, 0);
+}
+
+const sum = sumObjectValues(numbersObject);
+console.log(sum);  // 6
+
+*/
+
+//---------------------------------------------------------
+/*
+Ejercicio 5: Invertir una Palabra
+Descripción: Escribe una función que invierta una cadena de texto.
+*/
+/*
+const word = "javascript";
+
+function reverseString(string){
+    return string.split('').reverse().join('');
+}
+
+const reversedWord = reverseString(word);
+console.log(reversedWord);  // "tpircsavaj"
+*/
+//----------------------------------------------------------
+/*
+Ejercicio 6: Crear un Objeto a partir de un Array
+Descripción: Escribe una función que convierta un array de pares clave-valor en un objeto.
+*/
+
+const pairs = [['name', 'Alice'], ['age', 25], ['city', 'New York']];
+
+/*
+function arrayAObjeto(paresClaveValor) {
+    let objeto = {}
+    paresClaveValor.forEach(par => {
+        let clave = par[0]
+        let valor = par[1]
+        objeto.push(clave, valor)
+    });
+}*/
+
+function arrayToObject(arr) {
+    return arr.reduce((obj, [key, value]) => {
+        obj[key] = value;
+        return obj;
+    }, {});
+}
+
+const obj = arrayToObject(pairs);
+console.log(obj);  // { name: 'Alice', age: 25, city: 'New York' }
